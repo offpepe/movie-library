@@ -11,18 +11,18 @@ export const getMovies = async (setter) => {
 }
 
 export const login = async (setToken, email, password) => {
-    const log = await fetch('localhost:3000/users/login', {
+    const log = await fetch('http://localhost:3000/users/login', {
         method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             email,
             password,
         }),
     });
     const login = await log.json();
-    if(login.success) {
-      setToken(login.token);
-      return true;
-    } else {
-      return false;
-    };
+    setToken(login.token);  
+    return login;
 };
