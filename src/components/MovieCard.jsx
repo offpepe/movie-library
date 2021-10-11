@@ -9,7 +9,6 @@ export default function MovieCard({ movie }) {
   const [image, setImage] = useState('');
   useEffect(() => {
     getMovieCover(cover, setImage);
-    // fs.writeFile(`${process.env.PUBLIC_URL}/moviesCover/cover.jpg`, image);
   }, [setImage]);
   return (
       <Card style={{ width: '18rem' }}>
@@ -26,5 +25,5 @@ export default function MovieCard({ movie }) {
 MovieCard.propTypes = {
   props: PropTypes.shape({
     movie: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired,
+  }).isRequired,    
 };
