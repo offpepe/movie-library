@@ -5,10 +5,13 @@ import PropTypes from 'prop-types';
 import userContext from './userContext';
 
 export default function UserProvider ({ children }) {
-    const [email, setEmail] = useState('');  
+    const [email, setEmail] = useState('');
+    const [token, setToken] = useState('');
     const value = {
         email,
         setEmail,
+        token,
+        setToken,
     };
     return (
         <userContext.Provider value={ value } >
