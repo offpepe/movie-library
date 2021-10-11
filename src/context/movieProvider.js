@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useState } from "react";
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
 import movieContext from './movieContext';
 
-export default function userProvider ({ children }) {
+export default function MovieProvider ({ children }) {
     const [movieList, setMovieList] = useState('');  
     const value = {
         movieList,
@@ -19,6 +19,6 @@ export default function userProvider ({ children }) {
     );
 }
 
-userProvider.propTypes = {
+MovieProvider.propTypes = {
     children: PropTypes.arrayOf(PropTypes.object).isRequired,
 }

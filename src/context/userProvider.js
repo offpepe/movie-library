@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useState } from "react";
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
 import userContext from './userContext';
 
-export default function userProvider ({ children }) {
+export default function UserProvider ({ children }) {
     const [email, setEmail] = useState('');  
     const value = {
         email,
@@ -19,6 +19,6 @@ export default function userProvider ({ children }) {
     );
 }
 
-userProvider.propTypes = {
+UserProvider.propTypes = {
     children: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
