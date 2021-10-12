@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert  } from 'react-bootstrap';
 import MovieCardPreview from '../components/MovieCardPreview';
 import userContext from '../context/userContext';
@@ -13,6 +13,11 @@ export default function CreateMovie () {
     const submitNewMovie = async () => {
         const operation = await createNewMovie(newMovie, token);
         setAlert(operation);
+    }
+
+    const closePreview = () => {
+        setDispatch(false);
+        setAlert({});
     }
 
     return (
@@ -57,9 +62,10 @@ export default function CreateMovie () {
          <MovieCardPreview
            movie={ newMovie }
            className="card-preview"
-           setDispatch={ setDispatch }
+           setDispatch={ closePreview }
            submitNewMovie={ submitNewMovie }
-        />
+           alert={ alert } 
+           />
       </section>
       }
     </> 

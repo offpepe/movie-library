@@ -24,3 +24,8 @@
 .card-preview-footer button {
     margin: 0 25px;
 }
+
+.alert {
+    left: 50px;
+    z-index: 3;
+}
