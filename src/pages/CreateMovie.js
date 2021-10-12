@@ -10,7 +10,6 @@ export default function CreateMovie () {
     const [newMovie, setNewMovie] = useState({});
     const [dispatchCard, setDispatch] = useState(false);
     const [alert, setAlert] = useState({});
-    console.log(token);
     const submitNewMovie = async () => {
         const operation = await createNewMovie(newMovie, token);
         setAlert(operation);
