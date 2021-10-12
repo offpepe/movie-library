@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col, Form, Button, Alert  } from 'react-bootstrap';
 import userContext from '../context/userContext';
 import { login } from '../services/apiRequests';
+import { Redirect } from 'react-router';
 
 export default function Login () {
     const [userEmail, userSetEmail] = useState('');
@@ -28,8 +29,11 @@ export default function Login () {
         </Alert>);
         setShowAlert(true);
         setEmail(e);
+        setRedicrect(true);
       }
-      setTimeout(() => setShowAlert(false), 3000);
+      await setTimeout(() => {
+        setShowAlert(false)
+      }, 3000);
     }
         return (
             <main>
@@ -67,6 +71,7 @@ export default function Login () {
                   </Row>                      
               </Container>
               { showAlert && alert }
+              { redirect && <Redirect to="/movies" /> }
             </main>
         );
     }

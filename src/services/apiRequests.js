@@ -37,3 +37,21 @@ export const getMovieCover = async (filename, setter) => {
   });
   setter(rawImage);
 }
+
+export const createNewMovie = async (newMovie, token) => {
+    const { cover } = newMovie;
+    const formData = new FormData();
+    formData.append('cover', cover);
+    console.log(formData);
+    const rawResult = await fetch('http://localhost:3000/movies/create', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': token,
+      },
+      body: JSON.stringify(newMovie),
+    });
+    const result = await rawResult.json();
+    return result;
+}

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import { Col, Container, Row, Button } from 'react-bootstrap';
 import movieContext from '../context/movieContext';
 import { getMovies } from '../services/apiRequests';
 import MovieCard from '../components/MovieCard';
@@ -8,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 export default function Library () {
     const { movieList, setMovieList } = useContext(movieContext);
-    const [movies, setMovies] = useState([]);
     useEffect(async () => {
       await getMovies(setMovieList);
     },[])
@@ -26,15 +24,10 @@ export default function Library () {
               variant="info"
             >
               <Link to="/movies/create">
-              Adicionar novo filme
+                Adicionar novo filme
               </Link>
             </Button>
           </Row>
         </Container>
     );
 }
-
-// Library.propTypes = {
-
-// };
-

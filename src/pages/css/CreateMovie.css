@@ -1,0 +1,26 @@
+.card-preview-box {
+    align-items: center;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.card-preview {
+  box-shadow: 10px 5px black;
+}
+
+.card-preview-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.card-preview-footer button {
+    margin: 0 25px;
+}
