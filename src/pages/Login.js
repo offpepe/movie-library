@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Container, Row, Col, Form, Button, Alert  } from 'react-bootstrap';
 import userContext from '../context/userContext';
 import { login } from '../services/apiRequests';
@@ -31,7 +30,7 @@ export default function Login () {
         setEmail(e);
         setRedicrect(true);
       }
-      await setTimeout(() => {
+      setTimeout(() => {
         setShowAlert(false)
       }, 3000);
     }

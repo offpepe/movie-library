@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import movieContext from '../context/movieContext';
 import { getMovies } from '../services/apiRequests';
@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 export default function Library () {
     const { movieList, setMovieList } = useContext(movieContext);
-    useEffect(async () => {
-      await getMovies(setMovieList);
-    },[])
+    useEffect(() => {
+      getMovies(setMovieList);
+    },[setMovieList])
     return (
         <Container>
           <Col>

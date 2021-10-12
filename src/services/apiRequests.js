@@ -20,12 +20,7 @@ export const login = async (setToken, email, password) => {
 
 export const getMovies = async (setter) => {
   const { movies } = await (await fetch('http://localhost:3000/movies')).json();
-  if (movies) {
-    setter(movies);
-    return true
-  } else {
-    return false;
-  };
+  setter(movies);
 }
 
 export const getMovieCover = async (filename, setter) => {

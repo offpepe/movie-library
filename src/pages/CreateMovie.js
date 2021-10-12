@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Container, Row, Col, Form, Button, Alert  } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Container, Col, Form, Button, Alert  } from 'react-bootstrap';
+import { Redirect } from 'react-router';
 import MovieCardPreview from '../components/MovieCardPreview';
 import userContext from '../context/userContext';
 import { createNewMovie } from '../services/apiRequests';
@@ -9,16 +10,23 @@ export default function CreateMovie () {
     const { token } = useContext(userContext);
     const [newMovie, setNewMovie] = useState({});
     const [dispatchCard, setDispatch] = useState(false);
+    const [redirect, setRedirect] = useState(false);
     const [alert, setAlert] = useState({});
+    const [inputError, setInputError] = useState(false);
     const submitNewMovie = async () => {
         const operation = await createNewMovie(newMovie, token);
         setAlert(operation);
+        if(operation.success) {
+          setTimeout(() => setRedirect(true), 1000);
+        }
     }
 
     const closePreview = () => {
         setDispatch(false);
         setAlert({});
     }
+
+
 
     return (
     <>
@@ -29,13 +37,18 @@ export default function CreateMovie () {
           <Col>
               <Form onSubmit={ (ev) => {
                   ev.preventDefault();
+                  const { title, subtitle, description, cover } = ev.target;
+                  if (!title.value || !subtitle.value || !description.value || !cover.files[0]) {
+                      setInputError(true);
+                  } else {
                   setNewMovie({
-                      title: ev.target.title.value,
-                      subtitle: ev.target.subtitle.value,
-                      description: ev.target.description.value,
-                      cover: ev.target.cover.files[0],
+                      title: title.value,
+                      subtitle: subtitle.value,
+                      description: description.value,
+                      cover: cover.files[0],
                   });
                   setDispatch(true);
+                  }
               } }>
                   <Form.Label>
                     Título
@@ -53,21 +66,24 @@ export default function CreateMovie () {
                       Capa
                   </Form.Label>
                   <Form.Control type="file" name="cover" />
-                  <Button variant="secondary" type="submit"> Adicionar </Button>
+                    <Button variant="secondary" type="submit"> Adicionar </Button>
               </Form>
           </Col>
+          { inputError  && <Alert variant="warning" onClose={ () => setInputError   (false) } dismissible >
+              <Alert.Heading> Todos os campos precisam ser preenchidos </Alert.Heading>
+              </Alert>}
       </Container>
       { dispatchCard &&
       <section className="card-preview-box">
          <MovieCardPreview
            movie={ newMovie }
-           className="card-preview"
            setDispatch={ closePreview }
            submitNewMovie={ submitNewMovie }
            alert={ alert } 
            />
       </section>
       }
+      { redirect && <Redirect to="/movies" /> }
     </> 
     );
 }

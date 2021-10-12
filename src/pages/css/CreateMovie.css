@@ -13,7 +13,11 @@
 }
 
 .card-preview {
-  box-shadow: 10px 5px black;
+  box-shadow: 8px 5px 5px black;
+}
+
+.card-preview-img {
+  width: 150px;
 }
 
 .card-preview-footer {
@@ -25,7 +29,10 @@
     margin: 0 25px;
 }
 
-.alert {
-    left: 50px;
-    z-index: 3;
+.card-preview-alert {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }

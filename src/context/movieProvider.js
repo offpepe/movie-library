@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import movieContext from './movieContext';
 
 export default function MovieProvider ({ children }) {
-    const [movieList, setMovieList] = useState('');  
+    const [movieList, setMovieList] = useState([]);  
     const value = {
         movieList,
         setMovieList,
