@@ -4,6 +4,7 @@ import movieContext from '../context/movieContext';
 import { getMovies } from '../services/apiRequests';
 import MovieCard from '../components/MovieCard';
 import { Link } from 'react-router-dom';
+import './css/Library.css';
 
 export default function Library () {
     const { movieList, setMovieList } = useContext(movieContext);
@@ -29,5 +30,5 @@ export default function Library () {
             </Button>
           </Row>
         </Container>
-    );
+      );
 }
