@@ -1,0 +1,30 @@
+.movie-details {
+    align-items: center;
+    display: flex;
+    height: 30%;
+    justify-content: center;
+    padding-top: 30px;
+    width:100%;
+}
+
+.movie-details-img {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.movie-details-img img {
+    width: inherit;
+}
+
+.movie-details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 50vh;
+}
+
+.title-box, .subtitle-box, .description-box {
+    border: 1px solid black;
+    width: 50%;
+}

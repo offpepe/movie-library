@@ -9,7 +9,7 @@ export default function Login () {
     const [userPassword, userSetPassword] = useState('');
     const [showAlert, setShowAlert] = useState(false);
     const [alert, setAlert] = useState(<p> atenção: </p>);
-    const [redirect, setRedicrect] = useState(false);
+    const [redirect, setRedicrect] = useState(false); 
     const { setEmail, setToken } = useContext(userContext);
 
     const logIn = async (e, p) => {

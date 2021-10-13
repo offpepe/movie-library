@@ -49,4 +49,10 @@ export const createNewMovie = async (newMovie, token) => {
     });
     const result = await rawResult.json();
     return result;
-}
+};
+
+export const getMovieById = async (id, setter) => {
+  const movie = await (await fetch(`http://localhost:3000/movies/${id}`)).json();
+  setter(movie[0]);
+  return movie[0];
+} 
