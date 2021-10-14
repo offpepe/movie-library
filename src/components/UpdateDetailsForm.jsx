@@ -52,5 +52,9 @@ export default function UpdateDetailsForm ({ submitFormData, setDetails, setAler
 }
 
 UpdateDetailsForm.propTypes = {
-
+  props: PropTypes.shape({
+    submitFormData: PropTypes.func,
+    setDetails: PropTypes.func,
+    setAlert: PropTypes.func,
+  }).isRequired,
 };
