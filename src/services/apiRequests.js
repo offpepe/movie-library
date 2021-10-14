@@ -55,4 +55,27 @@ export const getMovieById = async (id, setter) => {
   const movie = await (await fetch(`http://localhost:3000/movies/${id}`)).json();
   setter(movie[0]);
   return movie[0];
-} 
+};
+
+export const updateMovie = async (id, token, updatedFields) => {
+  const rawResponse = await fetch(`http://localhost:3000/movies/update/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': token,
+    },
+    body: updatedFields,
+  });
+  const response = await rawResponse.json();
+  return response;
+};
+
+export const deleteMovie = async (id, token) => {
+  const rawResponse = await fetch(`http://localhost:3000/movies/delete/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': token,
+    },
+  });
+  const response = await rawResponse.json();
+  return response;
+};
