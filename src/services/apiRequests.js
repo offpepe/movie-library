@@ -18,6 +18,19 @@ export const login = async (setToken, email, password) => {
     return login;
   };
 
+export const createAccount = async (formData) => {
+  const create = await fetch('http://localhost:3000/users/create', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData),
+  });
+  const response = await create.json();
+  return response;
+}
+
 export const getMovies = async (setter) => {
   const { movies } = await (await fetch('http://localhost:3000/movies')).json();
   setter(movies);
