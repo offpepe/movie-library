@@ -10,9 +10,9 @@ export default function Routes () {
     return (
         <Switch>
             <Route exact path="/login"><Login /></Route>
+            <Route exact path="/movies/create"><CreateMovie /></Route>
             <Route exact path="/movies"><Library /></Route>
-            <Route exact path="/movies/:id"><MovieDetails /></Route>
-            <Route path="/movies/create"><CreateMovie /></Route>
+            <Route path="/movies/:id"><MovieDetails /></Route>
         </Switch>
     );
 }
