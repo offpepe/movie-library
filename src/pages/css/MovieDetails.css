@@ -24,7 +24,77 @@
     height: 50vh;
 }
 
+.movie-details-info form {
+  width: 100%;
+}
+
 .title-box, .subtitle-box, .description-box {
     border: 1px solid black;
     width: 50%;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-buttons button {
+    margin: 10px 30px;
+}
+
+.update-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px;
+}
+
+.update-form input {
+    margin: 20px 0;
+}
+
+.update-btn {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.update-btn button {
+    margin: 0 20px;
+}
+
+.update-container {
+    width: 100%;
+}
+
+.delete-box {
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.delete-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-card-footer {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete-card-header {
+    margin: 10px 0;
 }
