@@ -5,11 +5,13 @@ import Login from '../pages/Login';
 import MovieDetails from '../pages/MovieDetails';
 import CreateMovie from '../pages/CreateMovie';
 import Library from '../pages/Library';
+import SignIn from '../pages/SignIn';
 
 export default function Routes () {
     return (
         <Switch>
             <Route exact path="/login"><Login /></Route>
+            <Route exact path="/login/signIn"><SignIn /></Route>
             <Route exact path="/movies/create"><CreateMovie /></Route>
             <Route exact path="/movies"><Library /></Route>
             <Route path="/movies/:id"><MovieDetails /></Route>
