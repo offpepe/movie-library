@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button, Alert  } from 'react-bootstrap';
 import userContext from '../context/userContext';
 import { login } from '../services/apiRequests';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function Login () {
     const [userEmail, userSetEmail] = useState('');
@@ -67,6 +68,7 @@ export default function Login () {
                       >
                         Login
                       </Button>
+                      <Link to="login/signIn"><p>Não possuo uma conta :\ </p></Link>
                   </Row>                      
               </Container>
               { showAlert && alert }
