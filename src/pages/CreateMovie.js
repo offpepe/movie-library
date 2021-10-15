@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Col as Row, Form, Button, Alert  } from 'react-bootstrap';
 import { Redirect } from 'react-router';
 import StarRatingComponent from 'react-star-rating-component';
 import MovieCardPreview from '../components/MovieCardPreview';
 import userContext from '../context/userContext';
-import { createNewMovie } from '../services/apiRequests';
+import { createNewMovie, getUserByEmail } from '../services/apiRequests';
 import './css/CreateMovie.css';
 
 export default function CreateMovie () {
@@ -13,6 +13,7 @@ export default function CreateMovie () {
       token = localStorage.getItem('token');
       email = localStorage.getItem('email');
     }
+    const [user, getUser] = useState({})
     const [newMovie, setNewMovie] = useState({});
     const [dispatchCard, setDispatch] = useState(false);
     const [redirect, setRedirect] = useState(false);
@@ -20,6 +21,15 @@ export default function CreateMovie () {
     const [inputError, setInputError] = useState(false);
     const [rate, setRate] = useState(1);
     const [movieGenres] = useState(['Animação', 'Comédia', 'Comédia Romântica', 'Documentário', 'Drama', 'Faroeste', 'Ficção Científica', 'Musical', 'Suspense', 'Terror / Horror']);
+    
+    useEffect(() => {
+      const fetchUser = async () => {
+        const userData = await getUserByEmail(email);
+        getUser(userData.result);
+      }
+      fetchUser();
+    },[email])
+    
     const submitNewMovie = async () => {
         const operation = await createNewMovie(newMovie, token);
         setAlert(operation);
@@ -33,17 +43,16 @@ export default function CreateMovie () {
         setAlert({});
     }
 
-    const date = new Date()
-    const formated = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
-    const today = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+    const date = new Date().toLocaleDateString("pt-BR");
 
     return (
     <>
-      <Container>
-          <Row>
+      <Container className="create-movie-main">
+        <div style={ { padding: '30px 0' } }>
+          <Row style={ { textAlign: 'center' } }>
             <h1> Adicionar novo filme </h1>
           </Row>
-          <Row>
+          <Row className="create-movie-form">
               <Form onSubmit={ (ev) => {
                   ev.preventDefault();
                   const { title, subtitle, description, genre, releaseDate, rate, cover } = ev.target;
@@ -58,40 +67,40 @@ export default function CreateMovie () {
                       rate: rate.value,
                       description: description.value,
                       cover: cover.files[0],
-                      createdBy: email,
-                      createdAt: today,
+                      createdBy: user.username,
+                      createdAt: date,
                   });       
                   setDispatch(true);
                   }
               } }>
                   <Form.Label>
-                    Título
+                    <h4>Título</h4>
                   </Form.Label>
                   <Form.Control type="text" name="title"/>
                   <Form.Label>
-                      Subtítulo
+                      <h4>Subtítulo</h4>
                   </Form.Label>
                   <Form.Control type="text" name="subtitle" />
                   <Form.Label>
-                      Gênero
+                      <h4>Gênero</h4>
                   </Form.Label>
                   <Form.Select name="genre">
                     { movieGenres.map((genre) => <option value={ genre }>{ genre }</option>) }
                   </Form.Select>
                   <Form.Label>
-                      Ano de Lançamento
+                      <h4>Data de lançamento</h4>
                   </Form.Label>
-                  <Form.Control type="date" name="releaseDate" max={ formated } min='1888-12-12' />
-                  <Form.Label> Avaliação </Form.Label>
+                  <Form.Control type="date" name="releaseDate" max={ date } min='1888-12-12' />
+                  <Form.Label> <h4>Avaliação</h4> </Form.Label>
                   <Row style={ { fontSize: "30px" } }>
                   <StarRatingComponent name="rate" value={ rate } starCount={ 5 } onStarClick={ setRate } />
                   </Row>
                   <Form.Label>
-                      Descrição
+                  <h4>Descrição</h4>
                   </Form.Label>
                   <Form.Control as="textarea" name="description" style={{ height: '100px' }} />
                   <Form.Label>
-                      Capa
+                  <h4>Capa</h4>
                   </Form.Label>
                   <Form.Control type="file" name="cover" />
                     <Button variant="secondary" type="submit"> Adicionar </Button>
@@ -100,6 +109,7 @@ export default function CreateMovie () {
           { inputError  && <Alert variant="warning" onClose={ () => setInputError   (false) } dismissible >
               <Alert.Heading> Todos os campos precisam ser preenchidos </Alert.Heading>
               </Alert>}
+        </div>
       </Container>
       { dispatchCard &&
       <section className="card-preview-box">

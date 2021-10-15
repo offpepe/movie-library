@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Badge, Card, ListGroup, Button } from 'react-bootstrap';
+import { getUserByEmail } from '../services/apiRequests';
 import StarRatingComponent from 'react-star-rating-component';
 import PropTypes from 'prop-types';
 
@@ -22,9 +23,14 @@ export default function MovieDetails ({ movie: {
     errorAlert,
     setDetailStatus
      },) {
-        const splittedRelease = releaseDate.split('-');
-        const formattedReleaseDate = `${splittedRelease[2]}/${splittedRelease[1]}/${splittedRelease[0]}`;
-
+      const [user, setUser] = useState({})
+      useEffect(() => {
+      const fetchUser = async () => {
+        const userData = await getUserByEmail(email);
+        setUser(userData.result);
+      };
+      fetchUser()
+    },[email])
         return (
             <>
             <Card className="movie-details-info">
@@ -39,12 +45,12 @@ export default function MovieDetails ({ movie: {
                 <Card.Text>{ description }</Card.Text>
               </Card.Body>
               <ListGroup variant="info">
-                <ListGroup.Item>{ `Data de lançamento: ${formattedReleaseDate}` }</ListGroup.Item>
+                <ListGroup.Item>{ `Data de lançamento: ${releaseDate}` }</ListGroup.Item>
                 <ListGroup.Item><h3><StarRatingComponent starCount={ rate } value={ rate } /></h3></ListGroup.Item>
                 <ListGroup.Item>{ lastUpdate ? `Ultima atualização: ${lastUpdate}` : `Postado em: ${createdAt}` }</ListGroup.Item>
                 <ListGroup.Item>{ `Criado por: ${createdBy}` }</ListGroup.Item>
                 <ListGroup.Item><h4><Badge pill variant="dark">{ genre }</Badge></h4></ListGroup.Item>
-                { email === createdBy && <ListGroup.Item>
+                { user.username === createdBy && <ListGroup.Item>
                   <Button style={ { margin: '0 5px' } } variant="outline-primary" size="lg" onClick={ () => setDetailStatus('update') }>
                   <i class="far fa-edit"></i>
                   </Button>

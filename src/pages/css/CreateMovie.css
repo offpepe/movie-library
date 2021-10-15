@@ -1,3 +1,12 @@
+.create-movie-main {
+  height: 100vh;
+  color: whitesmoke;
+}
+
+.create-movie-form input, label {
+  margin: 5px 0;
+}
+
 .card-preview-box {
     align-items: center;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
