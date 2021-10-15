@@ -45,11 +45,11 @@ export default function MovieDetails ({ movie: {
                 <ListGroup.Item>{ `Criado por: ${createdBy}` }</ListGroup.Item>
                 <ListGroup.Item><h4><Badge pill variant="dark">{ genre }</Badge></h4></ListGroup.Item>
                 { email === createdBy && <ListGroup.Item>
-                  <Button variant="primary" size="lg" onClick={ () => setDetailStatus('update') }>
-                    Editar
+                  <Button style={ { margin: '0 5px' } } variant="outline-primary" size="lg" onClick={ () => setDetailStatus('update') }>
+                  <i class="far fa-edit"></i>
                   </Button>
-                  <Button onClick={ () => setConfirmation(true) } variant="danger" size="lg">
-                    Deletar
+                  <Button style={ { margin: '0 5px' } } onClick={ () => setConfirmation(true) } variant="outline-danger" size="lg">
+                  <i class="far fa-trash-alt"></i>
                   </Button>
                 </ListGroup.Item>
                 }
