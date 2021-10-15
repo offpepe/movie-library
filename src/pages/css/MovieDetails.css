@@ -1,36 +1,44 @@
+.details-main {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 .movie-details {
     align-items: center;
     display: flex;
+    width:80%;
     height: 30%;
     justify-content: center;
     padding-top: 30px;
-    width:100%;
 }
 
-.movie-details-img {
+.movie-details img {
+    width: 100%;
+}
+
+.movie-details-figure {
+    align-items: center;
+    border: 4px 4px white;
     display: flex;
     justify-content: flex-end;
     width: 50%;
 }
 
-.movie-details-img img {
-    width: inherit;
-}
-
 .movie-details-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
 }
 
 .movie-details-info form {
   width: 100%;
 }
 
-.title-box, .subtitle-box, .description-box {
-    border: 1px solid black;
-    width: 50%;
+.movie-details-movie-data {
+  margin: 15px;
 }
 
 .action-buttons {
@@ -45,6 +53,7 @@
 
 .update-form {
     align-items: center;
+    color: ivory;
     display: flex;
     flex-direction: column;
     justify-content: center;

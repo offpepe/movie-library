@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Alert, Card } from 'react-bootstrap'; 
+import { Alert } from 'react-bootstrap'; 
 import { useParams, Redirect } from 'react-router-dom'
 import UpdateDetailsForm from '../components/UpdateDetailsForm';
 import userContext from '../context/userContext';
+import MovieDetailsComponent from '../components/MovieDetails';
 import { deleteMovie, getMovieById, getMovieCover, updateMovie } from '../services/apiRequests';
 import './css/MovieDetails.css';
 
 export default function MovieDetails () {
-    let { token } = useContext(userContext);
+    let { token, email } = useContext(userContext);
     if (!token) {
       token = localStorage.getItem('token');
+      email = localStorage.getItem('email');
     }
     const [movie, getMovie] = useState({});
     const [image, setImage] = useState();
@@ -27,7 +29,6 @@ export default function MovieDetails () {
       }
       fetchApi();
     },[id]);
-    const { title, subtitle, description } = movie;
     const setAlert = (response, code, message) => (
         <Alert variant="danger" onClose={ () => setShowAlert(false) } dismissible>
           <Alert.Heading as="h3">{ `${code} -> ${response}` }</Alert.Heading>
@@ -71,32 +72,21 @@ export default function MovieDetails () {
     }
 
     return (
-        <>
-        { detailStatus === 'show' ? <>
+        <main className="details-main">
+        { image && movie && detailStatus === 'show' ? <>
           <main className="movie-details">
-            <section className="movie-details-img">
-              { image && <img src={ image.url } alt={` imagem do filme ${title}`} />}
-            </section>
-            <section className="movie-details-info">
-            <div className="title-box">
-              <h3>{ title }</h3>
-            </div>
-            <div className="subtitle-box">
-              <h4>{ subtitle }</h4>
-            </div>
-            <div className="description-box">
-              <p>{ description }</p>
-            </div>
-            </section>
-            </main>
-            <section className="action-buttons">
-                  <Button variant="primary" size="lg" onClick={ () => setDetailStatus('update') }>
-                    Editar
-                  </Button>
-                  <Button onClick={ () => setConfirmation(true) } variant="danger" size="lg">
-                    Deletar
-                  </Button>
-              </section>
+            <MovieDetailsComponent
+              movie={ movie }
+              cover={ image }
+              showConfirmation={ showConfirmation }
+              email={ email }
+              handleDelete={ handleDelete }
+              setConfirmation={ setConfirmation }
+              showDelError={ showDelError }
+              errorAlert={ errorAlert }
+              setDetailStatus={ setDetailStatus }
+              />
+          </main>
             </>: <UpdateDetailsForm
               submitFormData={ submitFormData }
               setDetails={ setDetailStatus }
@@ -104,23 +94,7 @@ export default function MovieDetails () {
               setError={ setErrorAlert }
               /> }
             { showAlert && errorAlert }
-            { showConfirmation && 
-            <section className="delete-box" >
-              <Card className="delete-card" >
-                  <Card.Header className="delete-card-header">
-                  <Card.Title> Está certo em deletar este filme? </Card.Title>
-                  </Card.Header>
-                  <Card.Body>
-                  <Card.Subtitle> Esta operação é irreversível! </Card.Subtitle>
-                  </Card.Body>
-                  <Card.Footer className="delete-card-footer">
-                    <Button onClick={ () => handleDelete() } variant="danger"> Sim </Button>
-                    <Button onClick={ () => setConfirmation(false) }  variant="info"> Não </Button>
-                  </Card.Footer>
-                  { showDelError && errorAlert }
-              </Card> 
-            </section>}
             { redirect && <Redirect to="/movies" /> }
-        </>
+        </main>
         );
 }
