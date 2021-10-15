@@ -33,6 +33,12 @@ export const createAccount = async (formData) => {
   return response;
 }
 
+export const getUserByEmail = async (email) => {
+  const rawUser = await fetch(`http://localhost:3000/users/${email}`);
+  const user = await rawUser.json();
+  return user;
+}
+
 export const getMovies = async (setter) => {
   const { movies } = await (await fetch('http://localhost:3000/movies')).json();
   setter(movies);
