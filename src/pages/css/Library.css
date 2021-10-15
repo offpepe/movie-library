@@ -13,6 +13,61 @@
   padding: 10px 0;
 }
 
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button-group h5 {
+  font-size: 30px;
+  margin: 0 10px;
+}
+
+.userMenu {
+  width: 300px;
+}
+
+.user-card {
+  align-items: center;
+  background-color:  rgba(17, 5, 44);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  width: 80%;
+  margin: 0 20px;
+}
+
+.login-form input::placeholder {
+  font-size: 12px;
+}
+
+.login-form-group {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.form-button-box {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.user-card footer {
+  width: 100%;
+}
+
+.user-card img   {
+  padding: 10px 0;
+  border-radius: 100%;
+}
+
 .movie-card-group {
   display: flex;
   flex-wrap: wrap;
