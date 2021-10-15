@@ -30,12 +30,14 @@ export default function MovieDetails () {
       fetchApi();
     },[id]);
     const setAlert = (response, code, message) => (
+      <div className="error-popup">
         <Alert variant="danger" onClose={ () => setShowAlert(false) } dismissible>
           <Alert.Heading as="h3">{ `${code} -> ${response}` }</Alert.Heading>
           <p>
             { message }
           </p>
         </Alert>
+      </div>
       );
 
       const setDelAlert = (response, code, message) => (
@@ -92,6 +94,8 @@ export default function MovieDetails () {
               setDetails={ setDetailStatus }
               setAlert={ setShowAlert }
               setError={ setErrorAlert }
+              movie={ movie }
+              cover={ image }
               /> }
             { showAlert && errorAlert }
             { redirect && <Redirect to="/movies" /> }

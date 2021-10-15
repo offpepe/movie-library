@@ -92,6 +92,20 @@
     z-index: 1;
 }
 
+.error-popup {
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
 .delete-card {
     display: flex;
     justify-content: center;
