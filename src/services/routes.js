@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 
 import Login from '../pages/Login';
 import MovieDetails from '../pages/MovieDetails';
@@ -10,6 +10,7 @@ import SignIn from '../pages/SignIn';
 export default function Routes () {
     return (
         <Switch>
+            <Route exact path="/"><Redirect to="/movies" /></Route>
             <Route exact path="/login"><Login /></Route>
             <Route exact path="/login/signIn"><SignIn /></Route>
             <Route exact path="/movies/create"><CreateMovie /></Route>
