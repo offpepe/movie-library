@@ -44,7 +44,7 @@ export default function LibraryHeader () {
                     <h5 style={ { color: 'white' } }><i class="fas fa-user-circle"/></h5>
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="userMenu">
-                { user ? <UserCard user={ user } loggout={ loggout } /> : <LoginForm setToken={ setToken } setEmail={ setEmail } /> }
+                { email && user ? <UserCard user={ user } loggout={ loggout } /> : <LoginForm setToken={ setToken } setEmail={ setEmail } /> }
                   </Dropdown.Menu>
                   </Dropdown> 
             </nav>
