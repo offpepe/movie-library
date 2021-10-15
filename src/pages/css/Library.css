@@ -1,9 +1,60 @@
-.card-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+#root {
+  width: 100%;
+  background-color:  rgba(17, 5, 44);
 }
 
-.card-header p {
-  font-size: 10px;
+.library-header {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  padding: 10px 0;
+}
+
+.movie-card-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;  
+}
+
+.movie-card {
+  margin: 10px;
+  text-decoration: none;
+  width: 20%;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+}
+
+.movie-card-content {
+  align-items: center;
+  background-color: rgba(17, 5, 44, 0.644);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute; 
+  text-align: center;
+  width: 100%;
+}
+
+.movie-card a {
+  text-decoration: none; 
+}
+
+.movie-card-content-data {
+  color: rgb(207, 204, 204);
+}
+
+.card {
+  border: 1px 1px rgb(83, 19, 231);
+}
+
+.new-movie-button-cont {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
 }
