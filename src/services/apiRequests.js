@@ -15,6 +15,8 @@ export const login = async (setToken, email, password) => {
       });
     const login = await log.json();
     setToken(login.token);  
+    localStorage.setItem('token', login.token);
+    localStorage.setItem('email', email);
     return login;
   };
 
@@ -47,11 +49,17 @@ export const getMovieCover = async (filename, setter) => {
 }
 
 export const createNewMovie = async (newMovie, token) => {
-    const { title, subtitle, description, cover } = newMovie;
+    const { title, subtitle, genre, releaseDate, rate, description, cover, createdBy, createdAt } = newMovie;
+    console.log(newMovie);
     const formData = new FormData();
     formData.append('title', title);
     formData.append('subtitle', subtitle);
+    formData.append('genre', genre);
+    formData.append('releaseDate', releaseDate);
+    formData.append('rate', rate);
     formData.append('description', description);
+    formData.append('createdAt', createdAt);
+    formData.append('createdBy', createdBy);
     formData.append('cover', cover);
     const rawResult = await fetch('http://localhost:3000/movies/create', {
       method: 'POST',
