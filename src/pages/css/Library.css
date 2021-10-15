@@ -102,6 +102,7 @@
 
 .movie-card-content-data {
   color: rgb(207, 204, 204);
+  text-shadow: 2px 2px rgb(59, 112, 9);
 }
 
 .card {

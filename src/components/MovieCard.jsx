@@ -17,7 +17,7 @@ export default function MovieCard({ movie }) {
         <div className="card-content movie-card-content">
       <Link to={ `/movies/${id}` }>
           <div className="movie-card-content-data">
-            <h4 className="title">{ title }</h4>
+            <h4 className="title" style={ { color: 'rgb(207, 204, 204)' } }>{ title }</h4>
             <h6>{ genre }</h6>
             <div>
               <StarRatingComponent starCount={ rate } value={ rate } />
