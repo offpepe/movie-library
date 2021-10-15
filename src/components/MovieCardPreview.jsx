@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Card, Button, Alert } from 'react-bootstrap';
+import { Card, Button, Alert, Badge } from 'react-bootstrap';
+import StarRatingComponent from 'react-star-rating-component';
 
 
 export default function MovieCard({ movie, setDispatch, submitNewMovie, alert }) {
   const [popOver, setPopOver] = useState()
   const [showAlert, setShowAlert] = useState(false);
-  const  { title, subtitle, description, cover } = movie;
+  const [showInfo, setShowInfo] = useState(false);
+  const  { title, subtitle, genre, releaseDate, rate, description, cover, createdBy, createdAt } = movie;
   useEffect(() => {
     const setAlert = (response, code, message) => (
       <Alert variant="danger" onClose={ () => setShowAlert(false) } dismissible>
@@ -30,6 +32,13 @@ export default function MovieCard({ movie, setDispatch, submitNewMovie, alert })
     await submitNewMovie();
   };
 
+  const toggleInfo = () => {
+    if (showInfo) {
+      setShowInfo(false);
+    } else {
+      setShowInfo(true);
+    }
+  }
 
   return (
       <Card style={ { width: '25rem' } } className="card-preview">
@@ -42,6 +51,20 @@ export default function MovieCard({ movie, setDispatch, submitNewMovie, alert })
               <Card.Title>{ title }</Card.Title>
               <Card.Subtitle>{ subtitle }</Card.Subtitle>
               <Card.Text>{ description }</Card.Text>
+              <Card.Body className="card-preview-info">
+                <h4>
+                  <Badge pill bg="dark">{ genre }</Badge>
+                </h4>
+                <i className="fas fa-question-circle" onClick={ () => toggleInfo() } ></i>
+              </Card.Body>
+              <div style={ { fontSize: "30px"  } } >
+              <StarRatingComponent value={ rate } starCount={ 5 } />  
+              </div>
+              { showInfo && <div className="card-preview-more-info">
+                <p> { `Data de Lançamento: ${releaseDate} `} </p>
+                <p> {`Filme adicionado por: ${ createdBy }`} </p>
+                <p> {`Adicionado em: ${ createdAt }` } </p>
+              </div> }
           </Card.Body>
           <Card.Body fluid="md" className="card-preview-footer">
             <Button variant='success' onClick={ () => dispatchNewMovie() } > Adicionar </Button>

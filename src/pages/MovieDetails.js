@@ -7,7 +7,10 @@ import { deleteMovie, getMovieById, getMovieCover, updateMovie } from '../servic
 import './css/MovieDetails.css';
 
 export default function MovieDetails () {
-    const { token } = useContext(userContext);
+    let { token } = useContext(userContext);
+    if (!token) {
+      token = localStorage.getItem('token');
+    }
     const [movie, getMovie] = useState({});
     const [image, setImage] = useState();
     const [detailStatus, setDetailStatus] = useState('show')
