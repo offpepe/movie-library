@@ -1,6 +1,6 @@
 #root {
-  background-color:  rgba(17, 5, 44);
-  height: 100%;
+  background-color:  #11052c;
+  height: 100vh;
   width: 100%;
 }
 
@@ -69,9 +69,11 @@
 }
 
 .movie-card-group {
+  background-color:  #11052c;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;  
+  height: 100%;  
+  justify-content: space-evenly;
 }
 
 .movie-card {

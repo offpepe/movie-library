@@ -37,7 +37,7 @@ export default function Library () {
       <>
         <LibraryHeader />
         <Container>
-          { movieList.length > 0 ? <div className="movie-card-group">
+          { movieList && movieList.length > 0 ? <div className="movie-card-group">
              { movieList.map((movie) => <MovieCard movie={ movie } />)}
           </div>
         :  <div className="spinner-box" > <Spinner style={ { width: '8rem', height: '8rem' } } variant="danger" animation="border" /> </div> } 

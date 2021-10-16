@@ -31,9 +31,9 @@ export default function LibraryHeader () {
                 <h1> Movie Library </h1>
             </div>
             <nav className="button-group">
-                <Link to="/movies/create" style={ { textDecoration: 'none' } } >
+                { email && <Link to="/movies/create" style={ { textDecoration: 'none' } } >
                   <h5 style={ { color: 'white' } }><i class="fas fa-plus"/></h5>
-                </Link>
+                </Link> }
                 <Dropdown>
                   <Dropdown.Toggle variant="dark" id="dropdown-basic">
                     <h5 style={ { color: 'white' } }><i class="fas fa-user-circle"/></h5>
