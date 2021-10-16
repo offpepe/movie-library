@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import movieContext from '../context/movieContext';
 import { getMovies, validateToken } from '../services/apiRequests';
 import MovieCard from '../components/MovieCard';
@@ -32,14 +32,15 @@ export default function Library () {
         checkToken();
       }
       getMovies(setMovieList);
-    },[setEmail, setMovieList, setToken])
+    },[setEmail, setMovieList, setToken]);
     return (
       <>
         <LibraryHeader />
         <Container>
-          <div className="movie-card-group">
-            { movieList && movieList.map((movie) => <MovieCard movie={ movie } />) }
+          { movieList.length > 0 ? <div className="movie-card-group">
+             { movieList.map((movie) => <MovieCard movie={ movie } />)}
           </div>
+        :  <div className="spinner-box" > <Spinner style={ { width: '8rem', height: '8rem' } } variant="danger" animation="border" /> </div> } 
         </Container>
       </>
       );

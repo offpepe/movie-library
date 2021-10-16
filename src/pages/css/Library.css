@@ -115,3 +115,12 @@
   justify-content: center;
   padding: 20px 0;
 }
+
+.spinner-box {
+  align-items: center;
+  color:rgb(207, 204, 204);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  padding-bottom: 20%;
+} 
