@@ -20,7 +20,6 @@ export default function LibraryHeader () {
     setToken('');
     setEmail('');
     localStorage.clear();
-    window.location.reload();
   };
 
     return (

@@ -1,0 +1,18 @@
+.not-found-main {
+    align-items: center;
+    color: rgb(228, 228, 142);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+}
+
+.not-found-main h1 {
+    font-size: 80px;
+    color: tomato;
+}
+
+.not-found-main h1, .not-found-main h2, .not-found-main h4, .not-found-main h6 {
+    margin: 20px 0;
+}
