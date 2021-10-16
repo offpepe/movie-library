@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Alert } from 'react-bootstrap'; 
+import { Alert, Spinner } from 'react-bootstrap'; 
 import { useParams, Redirect } from 'react-router-dom'
 import UpdateDetailsForm from '../components/UpdateDetailsForm';
 import userContext from '../context/userContext';
@@ -74,8 +74,10 @@ export default function MovieDetails () {
     }
 
     return (
+      <>
+      {image && movie ?  
         <main className="details-main">
-        { image && movie && detailStatus === 'show' ? <>
+        { detailStatus === 'show' ? <>
           <main className="movie-details">
             <MovieDetailsComponent
               movie={ movie }
@@ -99,6 +101,7 @@ export default function MovieDetails () {
               /> }
             { showAlert && errorAlert }
             { redirect && <Redirect to="/movies" /> }
-        </main>
+        </main> :  <div className="spinner-box" > <Spinner style={ { width: '8rem', height: '8rem' } } variant="danger" animation="border" /> </div> }
+      </>
         );
 }
