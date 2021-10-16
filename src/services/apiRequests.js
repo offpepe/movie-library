@@ -106,3 +106,9 @@ export const deleteMovie = async (id, token) => {
   const response = await rawResponse.json();
   return response;
 };
+
+export const validateToken = async (token) => {
+  const rawResponse = await fetch(`http://localhost:3000/users/validate/${token}`);
+  const response = rawResponse.json();
+  return response;
+}

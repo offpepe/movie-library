@@ -16,16 +16,12 @@ export default function LibraryHeader () {
     }
     fetchUser();
   },[email]);
-  if (!email) {
-    email = localStorage.getItem('email');
-  }
-
   const loggout = () => {
     setToken('');
     setEmail('');
     localStorage.clear();
     window.location.reload();
-  }
+  };
 
     return (
         <header className="library-header">

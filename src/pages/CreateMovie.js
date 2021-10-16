@@ -20,7 +20,7 @@ export default function CreateMovie () {
     const [alert, setAlert] = useState({});
     const [inputError, setInputError] = useState(false);
     const [rate, setRate] = useState(1);
-    const [movieGenres] = useState(['Animação', 'Comédia', 'Comédia Romântica', 'Documentário', 'Drama', 'Faroeste', 'Ficção Científica', 'Musical', 'Suspense', 'Terror / Horror']);
+    const [movieGenres] = useState(['Animação', 'Comédia', 'Comédia Romântica', 'Ação', 'Policial', 'Documentário', 'Drama', 'Faroeste', 'Ficção Científica', 'Musical', 'Suspense', 'Terror / Horror']);
     
     useEffect(() => {
       const fetchUser = async () => {
