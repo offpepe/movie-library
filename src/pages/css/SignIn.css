@@ -1,0 +1,20 @@
+.sign-in-main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-conteiner {
+    color: whitesmoke;
+    height: 80%;
+    width: 80%;
+}
+
+.sign-in-buttonGroup {
+    margin: 20px 0;
+}
+
+.sign-in-buttonGroup button {
+    margin: 0 15px 0 0;
+}

@@ -13,7 +13,7 @@ export default function CreateMovie () {
       token = localStorage.getItem('token');
       email = localStorage.getItem('email');
     }
-    const [user, getUser] = useState({})
+    const [user, getUser] = useState({});
     const [newMovie, setNewMovie] = useState({});
     const [dispatchCard, setDispatch] = useState(false);
     const [redirect, setRedirect] = useState(false);
