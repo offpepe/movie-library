@@ -36,12 +36,15 @@ export default function LibraryHeader () {
                 </Link> }
                 <Dropdown>
                   <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                    <h5 style={ { color: 'white' } }><i class="fas fa-user-circle"/></h5>
+                    <h5 style={ { color: 'white' } }><i className="fas fa-user-circle"/></h5>
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="userMenu">
                 { email && user ? <UserCard user={ user } loggout={ loggout } /> : <LoginForm setToken={ setToken } setEmail={ setEmail } /> }
                   </Dropdown.Menu>
                   </Dropdown> 
+                  <Link to="/credits" style={ { textDecoration: 'none' } } >
+                  <h5 style={ { color: 'white', fontSize: '40px' } }><i className="fas fa-info-circle"></i></h5>
+                </Link> 
             </nav>
         </header>
     );
