@@ -31,18 +31,18 @@ export const createAccount = async (formData) => {
   });
   const response = await create.json();
   return response;
-}
+};
 
 export const getUserByEmail = async (email) => {
   const rawUser = await fetch(`https://movie-library-api.herokuapp.com/users/${email}`);
   const user = await rawUser.json();
   return user;
-}
+};
 
 export const getMovies = async (setter) => {
   const { movies } = await (await fetch('https://movie-library-api.herokuapp.com/movies')).json();
   setter(movies);
-}
+};
 
 export const getMovieCover = async (filename, setter) => {
   const rawImage = await fetch(`https://movie-library-api.herokuapp.com/movies/img/${filename}`, {
@@ -52,7 +52,7 @@ export const getMovieCover = async (filename, setter) => {
     }
   });
   setter(rawImage);
-}
+};
 
 export const createNewMovie = async (newMovie, token) => {
     const { title, subtitle, genre, releaseDate, rate, description, cover, createdBy, createdAt } = newMovie;
@@ -110,4 +110,4 @@ export const validateToken = async (token) => {
   const rawResponse = await fetch(`https://movie-library-api.herokuapp.com/users/validate/${token}`);
   const response = rawResponse.json();
   return response;
-}
+};
