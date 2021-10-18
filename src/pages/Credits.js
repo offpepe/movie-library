@@ -14,10 +14,10 @@ export default function Credits () {
               </section>
               <nav className="credits-contact">
                   <span><a href="https://www.linkedin.com/in/alanalbuquerq/" target="_blank" rel="noreferrer">
-                      <i class="fab fa-linkedin-in" />
+                      <i className="fab fa-linkedin-in" />
                     </a></span>
                   <span><a href="http://github.com/offpepe/" target="_blank" rel="noreferrer">
-                      <i class="fab fa-github" />
+                      <i className="fab fa-github" />
                   </a></span>
               </nav>
             </main>
