@@ -12,11 +12,11 @@ export default function App() {
   return (
     <Switch>
       <Route exact path="/"><Library /></Route>
-      <Route exact path="/:id"><MovieDetails /></Route>
       <Route exact path="/login"><Login /></Route>
       <Route exact path="/signIn"><SignIn /></Route>
       <Route exact path="/create"><CreateMovie /></Route>
       <Route exact path="/credits"><Credits /></Route>
+      <Route path="/:id"><MovieDetails /></Route>
       <Route><NotFound/></Route>
     </Switch>
   );
