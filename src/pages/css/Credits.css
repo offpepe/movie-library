@@ -1,0 +1,45 @@
+.credits {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color: tomato;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+    }
+
+.credits h1 {
+    margin: 20px 0;
+}
+
+.credits-article {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.credits-article h5 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.credits-article article {
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: justify;
+    width: 25%;
+}
+
+.credits-contact {
+    align-items: center;
+    display: flex;
+    font-size: 50px;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 20%;
+}
+
+.credits-contact i:hover {
+    color: white;
+}
