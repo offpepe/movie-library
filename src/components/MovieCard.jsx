@@ -6,7 +6,7 @@ import StarRatingComponent from 'react-star-rating-component';
 
 export default function MovieCard({ movie }) {
   const  { _id: id, title, rate, genre, cover } = movie;
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState({});
   useEffect(() => {
     getMovieCover(cover, setImage);
   }, [setImage, cover]);

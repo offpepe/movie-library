@@ -24,6 +24,10 @@
   margin: 0 10px;
 }
 
+.dropdown {
+  margin-left: 20px;
+}
+
 .userMenu {
   width: 300px;
 }

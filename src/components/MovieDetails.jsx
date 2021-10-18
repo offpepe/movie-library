@@ -50,7 +50,7 @@ export default function MovieDetails ({ movie: {
                 <ListGroup.Item>{ lastUpdate ? `Ultima atualização: ${lastUpdate}` : `Postado em: ${createdAt}` }</ListGroup.Item>
                 <ListGroup.Item>{ `Criado por: ${createdBy}` }</ListGroup.Item>
                 <ListGroup.Item><h4><Badge pill variant="dark">{ genre }</Badge></h4></ListGroup.Item>
-                { user.username === createdBy && <ListGroup.Item>
+                { user && user.username === createdBy && <ListGroup.Item>
                   <Button style={ { margin: '0 5px' } } variant="outline-primary" size="lg" onClick={ () => setDetailStatus('update') }>
                   <i class="far fa-edit"></i>
                   </Button>

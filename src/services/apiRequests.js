@@ -2,7 +2,7 @@ global.fetch = require('cross-fetch');
 
 
 export const login = async (setToken, email, password) => {
-    const log = await fetch('http://localhost:3000/users/login', {
+    const log = await fetch('https://movie-library-api.herokuapp.com/users/login', {
       method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -21,7 +21,7 @@ export const login = async (setToken, email, password) => {
   };
 
 export const createAccount = async (formData) => {
-  const create = await fetch('http://localhost:3000/users/create', {
+  const create = await fetch('https://movie-library-api.herokuapp.com/users/create', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -34,18 +34,18 @@ export const createAccount = async (formData) => {
 }
 
 export const getUserByEmail = async (email) => {
-  const rawUser = await fetch(`http://localhost:3000/users/${email}`);
+  const rawUser = await fetch(`https://movie-library-api.herokuapp.com/users/${email}`);
   const user = await rawUser.json();
   return user;
 }
 
 export const getMovies = async (setter) => {
-  const { movies } = await (await fetch('http://localhost:3000/movies')).json();
+  const { movies } = await (await fetch('https://movie-library-api.herokuapp.com/movies')).json();
   setter(movies);
 }
 
 export const getMovieCover = async (filename, setter) => {
-  const rawImage = await fetch(`http://localhost:3000/movies/img/${filename}`, {
+  const rawImage = await fetch(`https://movie-library-api.herokuapp.com/movies/img/${filename}`, {
     headers: {
       'Content-Type': 'image/png',
       'Content-Disposition': 'inline; filename="picture.png"'
@@ -56,7 +56,6 @@ export const getMovieCover = async (filename, setter) => {
 
 export const createNewMovie = async (newMovie, token) => {
     const { title, subtitle, genre, releaseDate, rate, description, cover, createdBy, createdAt } = newMovie;
-    console.log(newMovie);
     const formData = new FormData();
     formData.append('title', title);
     formData.append('subtitle', subtitle);
@@ -67,7 +66,7 @@ export const createNewMovie = async (newMovie, token) => {
     formData.append('createdAt', createdAt);
     formData.append('createdBy', createdBy);
     formData.append('cover', cover);
-    const rawResult = await fetch('http://localhost:3000/movies/create', {
+    const rawResult = await fetch('https://movie-library-api.herokuapp.com/movies/create', {
       method: 'POST',
       headers: {
         'Authorization': token,
@@ -79,13 +78,13 @@ export const createNewMovie = async (newMovie, token) => {
 };
 
 export const getMovieById = async (id, setter) => {
-  const movie = await (await fetch(`http://localhost:3000/movies/${id}`)).json();
+  const movie = await (await fetch(`https://movie-library-api.herokuapp.com/movies/${id}`)).json();
   setter(movie[0]);
   return movie[0];
 };
 
 export const updateMovie = async (id, token, updatedFields) => {
-  const rawResponse = await fetch(`http://localhost:3000/movies/update/${id}`, {
+  const rawResponse = await fetch(`https://movie-library-api.herokuapp.com/movies/update/${id}`, {
     method: 'PUT',
     headers: {
       'Authorization': token,
@@ -97,7 +96,7 @@ export const updateMovie = async (id, token, updatedFields) => {
 };
 
 export const deleteMovie = async (id, token) => {
-  const rawResponse = await fetch(`http://localhost:3000/movies/delete/${id}`, {
+  const rawResponse = await fetch(`https://movie-library-api.herokuapp.com/movies/delete/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': token,
@@ -108,7 +107,7 @@ export const deleteMovie = async (id, token) => {
 };
 
 export const validateToken = async (token) => {
-  const rawResponse = await fetch(`http://localhost:3000/users/validate/${token}`);
+  const rawResponse = await fetch(`https://movie-library-api.herokuapp.com/users/validate/${token}`);
   const response = rawResponse.json();
   return response;
 }

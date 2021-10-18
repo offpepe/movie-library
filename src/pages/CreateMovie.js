@@ -25,7 +25,6 @@ export default function CreateMovie () {
     useEffect(() => {
       const fetchUser = async () => {
         const userData = await getUserByEmail(email);
-        console.log(userData);
         getUser(userData.result);
       }
       fetchUser();
