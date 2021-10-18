@@ -15,7 +15,7 @@ it's a front-end application that organize data received from [Movie Library Api
 
 ## What was worked
 
-- Setup a React appp
+- Setup a React app
 - Create routes with react router
 - handle of data with context api
 - handle with renderization of components with useEffect and useState from react hooks
