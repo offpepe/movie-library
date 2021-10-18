@@ -94,7 +94,7 @@ export default function MovieDetails () {
               movie={ movie }
               /> }
             { showAlert && errorAlert }
-            { redirect && <Redirect to="/movies" /> }
+            { redirect && <Redirect to="/" /> }
         </main> :  <div className="spinner-box" > <Spinner style={ { width: '8rem', height: '8rem' } } variant="danger" animation="border" /> </div> }
       </>
         );

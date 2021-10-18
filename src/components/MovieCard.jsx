@@ -10,7 +10,7 @@ export default function MovieCard({ movie }) {
     { movie && <div className="card movie-card">
         <img src={ cover } alt={ `cover of ${title}` } />
         <div className="card-content movie-card-content">
-      <Link to={ `/movies/${id}` }>
+      <Link to={ `/${id}` }>
           <div className="movie-card-content-data">
             <h4 className="title" style={ { color: 'rgb(207, 204, 204)' } }>{ title }</h4>
             <h6>{ genre }</h6>

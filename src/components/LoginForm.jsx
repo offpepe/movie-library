@@ -26,14 +26,14 @@ export default function LoginForm ({ setToken, setEmail })  {
          <span className="icon is-small is-left">
            <i className="fas fa-envelope"></i>
          </span>
-        <p style={ { fontSize: '10px', margin: '3px' } }><Link to="login/signIn" style={ { textDecoration: 'none' } }>Não possui conta? Clique aqui! </Link></p>
+        <p style={ { fontSize: '10px', margin: '3px' } }><Link to="/login/signIn" style={ { textDecoration: 'none' } }>Não possui conta? Clique aqui! </Link></p>
         </p>
         <p className="control has-icons-left has-icons-right">
          <Form.Control className="input" type="password" name="password" placeholder="adalovelance@betrybe.com" />
          <span className="icon is-small is-left">
           <i className="fas fa-lock"></i>
          </span>
-         <p style={ { fontSize: '10px', margin: '3px'  } }><Link to="login/reset" style={ { textDecoration: 'none' } }> Esqueci minha senha </Link></p>
+         <p style={ { fontSize: '10px', margin: '3px'  } }><Link to="/login/reset" style={ { textDecoration: 'none' } }> Esqueci minha senha </Link></p>
         </p>
         <span className="form-button-box">
         <Button variant="success" type="submit"> Logar </Button>

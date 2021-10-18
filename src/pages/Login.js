@@ -72,7 +72,7 @@ export default function Login () {
                   </Row>                      
               </Container>
               { showAlert && alert }
-              { redirect && <Redirect to="/movies" /> }
+              { redirect && <Redirect to="/" /> }
             </main>
         );
     }

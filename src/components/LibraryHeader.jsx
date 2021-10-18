@@ -31,7 +31,7 @@ export default function LibraryHeader () {
                 <h1> Movie Library </h1>
             </div>
             <nav className="button-group">
-                { email && <Link to="/movies/create" style={ { textDecoration: 'none' } } >
+                { email && <Link to="/create" style={ { textDecoration: 'none' } } >
                   <h5 style={ { color: 'white' } }><i class="fas fa-plus"/></h5>
                 </Link> }
                 <Dropdown>

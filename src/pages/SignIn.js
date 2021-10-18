@@ -69,7 +69,7 @@ export default function SignIn () {
                   </Form>
                  { showAlert && errAlert  }
                 </Container>
-                { redirect && <Redirect to="/movies" /> }
+                { redirect && <Redirect to="/" /> }
             </main>
         );
 }

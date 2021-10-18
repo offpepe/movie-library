@@ -121,7 +121,7 @@ export default function CreateMovie () {
            />
       </section>
       }
-      { redirect && <Redirect to="/movies" /> }
+      { redirect && <Redirect to="/" /> }
     </> 
     );
 }
