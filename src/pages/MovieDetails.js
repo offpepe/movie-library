@@ -4,7 +4,7 @@ import { useParams, Redirect } from 'react-router-dom'
 import UpdateDetailsForm from '../components/UpdateDetailsForm';
 import userContext from '../context/userContext';
 import MovieDetailsComponent from '../components/MovieDetails';
-import { deleteMovie, getMovieById, getMovieCover, updateMovie } from '../services/apiRequests';
+import { deleteMovie, getMovieById, updateMovie } from '../services/apiRequests';
 import './css/MovieDetails.css';
 
 export default function MovieDetails () {
@@ -14,7 +14,6 @@ export default function MovieDetails () {
       email = localStorage.getItem('email');
     }
     const [movie, getMovie] = useState({});
-    const [image, setImage] = useState();
     const [detailStatus, setDetailStatus] = useState('show')
     const [showAlert, setShowAlert] = useState(false);
     const [showConfirmation, setConfirmation] = useState(false)
@@ -23,10 +22,7 @@ export default function MovieDetails () {
     const [redirect, setRedirect] = useState(false);
     const { id }= useParams();
     useEffect(() => {
-      const fetchApi = async () => {
-        const movie = await getMovieById(id, getMovie); 
-        await getMovieCover(movie.cover, setImage);
-      }
+      const fetchApi = async () => await getMovieById(id, getMovie); 
       fetchApi();
     },[id]);
     const setAlert = (response, code, message) => (
@@ -75,13 +71,12 @@ export default function MovieDetails () {
 
     return (
       <>
-      {image && movie ?  
+      { movie ?  
         <main className="details-main">
         { detailStatus === 'show' ? <>
           <main className="movie-details">
             <MovieDetailsComponent
               movie={ movie }
-              cover={ image }
               showConfirmation={ showConfirmation }
               email={ email }
               handleDelete={ handleDelete }
@@ -97,7 +92,6 @@ export default function MovieDetails () {
               setAlert={ setShowAlert }
               setError={ setErrorAlert }
               movie={ movie }
-              cover={ image }
               /> }
             { showAlert && errorAlert }
             { redirect && <Redirect to="/movies" /> }

@@ -44,16 +44,6 @@ export const getMovies = async (setter) => {
   setter(movies);
 };
 
-export const getMovieCover = async (filename, setter) => {
-  const rawImage = await fetch(`https://movie-library-api.herokuapp.com/movies/img/${filename}`, {
-    headers: {
-      'Content-Type': 'image/png',
-      'Content-Disposition': 'inline; filename="picture.png"'
-    }
-  });
-  setter(rawImage);
-};
-
 export const createNewMovie = async (newMovie, token) => {
     const { title, subtitle, genre, releaseDate, rate, description, cover, createdBy, createdAt } = newMovie;
     const formData = new FormData();

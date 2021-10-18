@@ -25,7 +25,7 @@ export default function LibraryHeader () {
     return (
         <header className="library-header">
             <div className="logo-conteiner" style={ { color: 'yellow', fontSize: '30px' } }>
-                <i class="fas fa-play" />
+                <i className="fas fa-play" />
             </div>
             <div style={ { color: 'white' } } >
                 <h1> Movie Library </h1>

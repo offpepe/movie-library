@@ -20,5 +20,5 @@ export default function MovieProvider ({ children }) {
 }
 
 MovieProvider.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.object).isRequired,
+    children: PropTypes.object.isRequired,
 }

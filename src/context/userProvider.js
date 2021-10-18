@@ -23,5 +23,5 @@ export default function UserProvider ({ children }) {
 }
 
 UserProvider.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.object).isRequired,
+    children: PropTypes.object.isRequired,
 }

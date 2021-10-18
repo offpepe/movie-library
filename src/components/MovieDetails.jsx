@@ -13,8 +13,8 @@ export default function MovieDetails ({ movie: {
     genre,
     createdBy,
     createdAt,
-    lastUpdate },
-    cover,
+    lastUpdate,
+    cover  },
     showConfirmation,
     email,
     handleDelete,
@@ -36,7 +36,7 @@ export default function MovieDetails ({ movie: {
             <Card className="movie-details-info">
             <div style={ { display: 'flex' } }>
             <section className="movie-details-figure">
-              <img src={ cover.url } alt={ `Cover of movie ${title}` }  />
+              <img src={ cover } alt={ `Cover of movie ${title}` }  />
             </section>
             <section className="movie-details-movie-data">
               <Card.Title>{ title }</Card.Title>
@@ -85,6 +85,14 @@ export default function MovieDetails ({ movie: {
 
 MovieDetails.propTypes = {
   props: PropTypes.shape({
-      movie: PropTypes.arrayOf(PropTypes.string),
+    movie: PropTypes.objectOf(PropTypes.string),
+    cover: PropTypes.object,
+    showConfirmation: PropTypes.func,
+    email: PropTypes.string,
+    handleDelete: PropTypes.func,
+    setConfirmation: PropTypes.func,
+    showDelError: PropTypes.func,
+    errorAlert: PropTypes.func,
+    setDetailStatus: PropTypes.func,
     }).isRequired,    
 };
