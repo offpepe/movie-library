@@ -11,7 +11,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <UserProvider>
     <MovieProvider>
-     <BrowserRouter>
+     <BrowserRouter basename={process.env.PUBLIC_URL} >
        <App />
       </BrowserRouter>
     </MovieProvider>
