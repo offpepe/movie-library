@@ -8,7 +8,9 @@ export default function MovieCard({ movie }) {
   return (
     <>
     { movie && <div className="card movie-card">
+      <figure>
         <img src={ cover } alt={ `cover of ${title}` } />
+      </figure>
         <div className="card-content movie-card-content">
       <Link to={ `/${id}` }>
           <div className="movie-card-content-data">

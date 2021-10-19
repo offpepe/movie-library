@@ -35,9 +35,7 @@ export default function MovieDetails ({ movie: {
             <>
             <Card className="movie-details-info">
             <div style={ { display: 'flex' } }>
-            <section className="movie-details-figure">
               <img src={ cover } alt={ `Cover of movie ${title}` }  />
-            </section>
             <section className="movie-details-movie-data">
               <Card.Title>{ title }</Card.Title>
               <Card.Subtitle>{ subtitle }</Card.Subtitle>

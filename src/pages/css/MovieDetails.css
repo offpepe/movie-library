@@ -15,6 +15,10 @@
 }
 
 .movie-details img {
+  width: 500px;
+}
+
+.movie-details-figure img {
     width: 100%;
 }
 
@@ -23,7 +27,6 @@
     border: 4px 4px white;
     display: flex;
     justify-content: flex-end;
-    width: 50%;
 }
 
 .movie-details-info {
