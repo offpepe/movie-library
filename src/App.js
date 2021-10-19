@@ -5,7 +5,6 @@ import Library from './pages/Library';
 import MovieDetails from './pages/MovieDetails';
 import SignIn from './pages/SignIn';
 import NotFound from './pages/NotFound';
-import Credits from './pages/Credits';
 import { Route, Switch } from 'react-router';
 
 export default function App() {
