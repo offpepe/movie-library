@@ -15,7 +15,6 @@ export default function App() {
       <Route exact path="/login"><Login /></Route>
       <Route exact path="/signIn"><SignIn /></Route>
       <Route exact path="/create"><CreateMovie /></Route>
-      <Route exact path="/credits"><Credits /></Route>
       <Route exact path="/:id"><MovieDetails /></Route>
       <Route path="*" exact ><NotFound/></Route>
     </Switch>
