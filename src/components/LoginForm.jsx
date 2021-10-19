@@ -29,7 +29,7 @@ export default function LoginForm ({ setToken, setEmail })  {
         <p style={ { fontSize: '10px', margin: '3px' } }><Link to="/signIn" style={ { textDecoration: 'none' } }>Não possui conta? Clique aqui! </Link></p>
         </p>
         <p className="control has-icons-left has-icons-right">
-         <Form.Control className="input" type="password" name="password" placeholder="adalovelance@betrybe.com" />
+         <Form.Control className="input" type="password" name="password" placeholder="Your password" />
          <span className="icon is-small is-left">
           <i className="fas fa-lock"></i>
          </span>
